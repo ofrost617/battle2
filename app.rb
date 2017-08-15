@@ -13,7 +13,17 @@ get '/secretpath' do
   "it was great to see you!"
 end
 
-get '/cat' do
-  @name = ["Alessio","Puyan"].sample
+get '/random-cat' do
+  @name = ["Alessio","Giulio"].sample
+  erb(:index)
+end
+
+post '/named-cat' do
+  p params
+  @name = params[:name]
+  erb(:index)
+end
+
+get '/naming-form' do
   erb(:index)
 end

@@ -1,5 +1,14 @@
-<h1>My name is <%=@name%><h1> 
+<h1>My name is <%=@name%><h1>
 
-<div style='border: 3px dashed red'>
-  <img src='http://bit.ly/1eze8aE'>
- </div>
+  <div style='border: 3px dashed red'>
+    <img src='http://bit.ly/1eze8aE'>
+  </div>
+
+<%if @name.nil? || @name.empty? %>
+<form action="/named-cat" method="post">
+  <input type="text" name="name">
+  <input type="submit" value="Submit">
+</form>
+
+
+<%end%>
