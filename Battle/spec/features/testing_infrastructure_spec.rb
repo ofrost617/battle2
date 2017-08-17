@@ -18,4 +18,10 @@ feature Battle do
     expect(page).to have_content 'Olivia points: 20'
   end
 
+  scenario 'player 1 can attack player 2 and see results' do
+    sign_in_and_play
+    click_link('Attack!')
+    expect(page).to have_content 'Alessio attacked Olivia'
+  end
+
 end
