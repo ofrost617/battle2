@@ -1,8 +1,16 @@
 require './app.rb'
 
-feature 'testing infrastructure' do
-  scenario 'can run app and check page content' do
+feature Battle do
+  scenario 'it asks to enter players' do
     visit('/')
-    expect(page).to have_content 'Testing infrastructure working!'
+    expect(page).to have_content 'Enter players'
+  end
+
+  scenario 'fill and check page content' do
+    visit('/')
+    fill_in('player1', :with => 'Alessio')
+    fill_in('player2', :with => 'Olivia')
+    click_button('Submit')
+    expect(page).to have_content 'Alessio and Olivia are going to battle!'
   end
 end
