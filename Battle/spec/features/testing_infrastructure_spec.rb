@@ -13,4 +13,13 @@ feature Battle do
     click_button('Submit')
     expect(page).to have_content 'Alessio and Olivia are going to battle!'
   end
+
+  scenario 'player 1 can see player 2 hit points' do
+    visit('/')
+    fill_in('player1', :with => 'Alessio')
+    fill_in('player2', :with => 'Olivia')
+    click_button('Submit')
+    expect(page).to have_content 'Olivia points: 20'
+  end
+
 end
